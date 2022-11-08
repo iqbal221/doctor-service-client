@@ -1,4 +1,5 @@
 import React from "react";
+import { GoArrowRight } from "react-icons/go";
 
 const ServiceCard = ({ service }) => {
   console.log(service);
@@ -9,12 +10,13 @@ const ServiceCard = ({ service }) => {
       <figure>
         <img src={image} className="h-64 w-full" alt="Shoes" />
       </figure>
-      <div className="card-body">
+      <div className="service-card card-body">
         <h4 className="text-2xl">{price}</h4>
-        <p className='hover:<button className="btn btn-primary">Buy Now</button>'>
-          {description.slice(0, 90)}.....
-        </p>
-        <div className="card-actions justify-end"></div>
+        <p className="">{description.slice(0, 90)}.....</p>
+        <div className=" flex justify-end items-center hover:text-lime-500 font-bold">
+          <button>Show details</button>
+          <GoArrowRight />
+        </div>
       </div>
     </div>
   );
