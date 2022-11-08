@@ -1,13 +1,15 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import Services from "./Services/Services";
 
 const Home = () => {
+  const services = useLoaderData();
   return (
     <div>
       <Banner></Banner>
-      <div className="md:px-24 py-20">
-        <Services></Services>
+      <div className="md:px-24 py-36">
+        <Services services={services}></Services>
       </div>
     </div>
   );
