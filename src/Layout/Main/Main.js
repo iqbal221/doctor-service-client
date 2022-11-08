@@ -5,6 +5,7 @@ import Header from "../../Shared/Header/Header";
 import Footer from "../../Shared/Footer/Footer";
 import "./Main.css";
 import Home from "../../Pages/Home/Home";
+import AllServices from "../../Pages/AllServices/AllServices";
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
       <Header></Header>
       <Outlet>
         <Home></Home>
+        <AllServices></AllServices>
       </Outlet>
       <Footer></Footer>
     </div>

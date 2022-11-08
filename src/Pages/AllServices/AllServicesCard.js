@@ -1,8 +1,8 @@
 import React from "react";
 import { GoArrowRight } from "react-icons/go";
 
-const ServiceCard = ({ service }) => {
-  const { name, image, price, description } = service;
+const AllServicesCard = ({ allService }) => {
+  const { name, price, image, description } = allService;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <h2 className="card-title text-center text-lime-500">{name}</h2>
@@ -21,4 +21,4 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-export default ServiceCard;
+export default AllServicesCard;

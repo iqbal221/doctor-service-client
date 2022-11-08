@@ -1,22 +1,25 @@
 import React from "react";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { useLoaderData } from "react-router-dom";
+import Banner from "../Home/Banner/Banner";
+import AllServicesCard from "./AllServicesCard";
 
 const AllServices = () => {
-  const handleAllServices = () => {
-    fetch("http://localhost:5000/all_services")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+  const allServices = useLoaderData();
 
   return (
-    <div className="text-center mt-6 ">
-      <button
-        onClick={handleAllServices}
-        className="btn btn-outline btn-primary text-white "
-      >
-        See All Services{" "}
-        <BsFillArrowRightCircleFill className="ml-2 text-2xl" />
-      </button>
+    <div>
+      <Banner></Banner>
+      <h2 className="text-3xl pt-20 text-center text-orange-400 font-bold ">
+        All Services
+      </h2>
+      <div className="md:px-24 pt-16 pb-20 grid md:grid-cols-3 grid-cols-1 gap-10">
+        {allServices?.map((allService) => (
+          <AllServicesCard
+            key={allService._id}
+            allService={allService}
+          ></AllServicesCard>
+        ))}
+      </div>
     </div>
   );
 };

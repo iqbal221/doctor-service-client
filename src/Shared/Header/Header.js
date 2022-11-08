@@ -43,7 +43,7 @@ const Header = () => {
                     to="/"
                     className=" hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
                   >
-                    Courses
+                    Home
                   </Link>
 
                   <Link
