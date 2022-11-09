@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { userLogin, loginWithGoogle } = useContext(AuthContext);
+  const { userLogin, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   const handleLoginWithGoogle = () => {
-    loginWithGoogle()
+    googleLogin()
       .then((result) => {
         const user = result.user;
         console.log(user);

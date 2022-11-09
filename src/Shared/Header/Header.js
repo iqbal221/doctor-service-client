@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Transition } from "@headlessui/react";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import avatar from "../../assets/image/avatar.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -164,7 +165,9 @@ const Header = () => {
             ) : (
               <label tabIndex={0}>
                 <div className="avatar online placeholder hover:cursor-pointer">
-                  <div className="bg-neutral-focus text-neutral-content rounded-full w-12"></div>
+                  <div className=" w-12">
+                    <img src={avatar} alt="..." />
+                  </div>
                 </div>
               </label>
             )}
@@ -199,12 +202,6 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/faq"
-                    className="hover:bg-gray-700 hover:text-white text-warning px-3 py-2 rounded-md text-md font-medium"
-                  >
-                    FAQ
-                  </Link>
-                  <Link
                     to="/blogs"
                     className="hover:bg-gray-700 hover:text-white text-warning px-3 py-2 rounded-md text-md font-medium"
                   >
@@ -219,7 +216,7 @@ const Header = () => {
                       </Link>
                       <Link to="/signup">
                         <button className="btn btn-sm btn-outline btn-warning">
-                          Sign
+                          Sign Up
                         </button>
                       </Link>
                     </>
@@ -232,7 +229,7 @@ const Header = () => {
                     <div className="dropdown dropdown-end block md:hidden">
                       <label tabIndex={0}>
                         <div className="avatar online placeholder hover:cursor-pointer">
-                          <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                          <div className="w-12">
                             <img src={user?.photoURL} alt="..." />
                           </div>
                         </div>
@@ -270,7 +267,9 @@ const Header = () => {
                   ) : (
                     <label tabIndex={0}>
                       <div className="avatar online placeholder hover:cursor-pointer">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full w-12"></div>
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+                          <img src={avatar} alt="..." />
+                        </div>
                       </div>
                     </label>
                   )}
