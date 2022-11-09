@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { Transition } from "@headlessui/react";
-// import Sidebar from "../Sidebar/Sidebar";
-// import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../assets/logo.png";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   // const handleLogOut = () => {
   //   logOut()
@@ -59,7 +58,7 @@ const Header = () => {
                     Blogs
                   </Link>
 
-                  {/* {!user && !user?.uid ? (
+                  {!user && !user?.uid ? (
                     <>
                       <Link to="/login">
                         <button className="btn btn-sm btn-outline btn-warning">
@@ -77,7 +76,7 @@ const Header = () => {
                       Email:{" "}
                       <span className="text-success ml-2">{user?.email}</span>
                     </Link>
-                  )} */}
+                  )}
                 </div>
               </div>
             </div>
