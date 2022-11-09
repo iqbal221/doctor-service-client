@@ -28,6 +28,23 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("");
+
+        const currentUser = {
+          email: user.email,
+        };
+
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("fitness_trainer", data.token);
+          });
         if (email === user.email) {
           toast.success("Login successfully");
           navigate(from, { replace: true });

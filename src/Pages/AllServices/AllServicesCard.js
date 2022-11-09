@@ -11,9 +11,9 @@ const AllServicesCard = ({ allService }) => {
       </figure>
       <div className="service-card card-body">
         <h4 className="text-2xl">{price}</h4>
-        <p className="">{description.slice(0, 90)}.....</p>
+        <p className="">{description.slice(0, 100)}.....</p>
         <div className=" flex justify-end items-center hover:text-lime-500 font-bold">
-          <button>Show details</button>
+          <button>View details</button>
           <GoArrowRight />
         </div>
       </div>
