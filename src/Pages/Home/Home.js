@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "./Banner/Banner";
 import Services from "./Services/Services";
+import { Stories } from "./Stories/Stories";
 
 const Home = () => {
   const [services, setServices] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <div className="md:px-24 py-36">
         <Services services={services}></Services>
+        <Stories></Stories>
       </div>
     </div>
   );

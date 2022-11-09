@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
         <img src={image} className="h-64 w-full" alt="Shoes" />
       </figure>
       <div className="service-card card-body">
-        <h4 className="text-2xl">{price}</h4>
+        <h4 className="text-2xl">Course: {price}</h4>
         <p className="">{description.slice(0, 100)}.....</p>
         <div className=" flex justify-end items-center hover:text-lime-500 font-bold">
           <button>Veiw details</button>
