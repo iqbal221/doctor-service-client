@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
-import GoogleLogin from "../../../Contexts/AuthProvider";
+import google from "../../../assets/image/google.png";
+import facebook from "../../../assets/image/fb.png";
+import github from "../../../assets/image/github.jpg";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const { userLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { userLogin, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -21,38 +25,47 @@ const Login = () => {
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
+        console.log(user);
         form.reset();
-        // navigate("/");
-        // navigate(from, { replace: true });
-
-        const currentUser = {
-          email: user.email,
-        };
-
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(currentUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            localStorage.setItem("genius_token", data.token);
-            navigate(from, { replace: true });
-          });
+        setError("");
+        if (email === user.email) {
+          toast.success("Login successfully");
+          navigate(from, { replace: true });
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
+  const handleLoginWithGoogle = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  // const handleLoginWithGithub = () => {
+  //   loginWithGithub()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //       navigate("/");
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
+
   return (
-    <div className="hero my-20 ">
-      <div className="hero-content grid gap-6 grid-cols-1 md:grid-cols-2">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <h1 className="text-3xl text-center font-bold">Login</h1>
-          <form onSubmit={handleLogin} className="card-body">
+    <div className="hero pb-10 bg-base-150 ">
+      <div className="hero-content flex-col   ">
+        <div className="text-center lg:text-left">
+          <h3 className="text-2xl  font-bold">Login now!</h3>
+        </div>
+        <div className="login-card card flex-shrink-0 md:w-96 w-80 max-w-sm shadow-2xl bg-gray">
+          <form onSubmit={handleLogin} className="card-body mb-0 pb-2">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -62,6 +75,7 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -73,29 +87,51 @@ const Login = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
               <label className="label">
-                <Link href="#" className="label-text-alt link link-hover">
+                <Link
+                  href="#"
+                  className="label-text-alt link link-hover"
+                  alt="..."
+                >
                   Forgot password?
                 </Link>
               </label>
             </div>
-            <div className="form-control mt-6">
-              <button
-                type="submit"
-                className="btn border-orange-600 bg-orange-600"
-              >
-                Login
-              </button>
+            <div className="form-control mt-4">
+              <button className="btn btn-primary">Login</button>
             </div>
-            <p className="text-center">
-              New to Genius Car{" "}
-              <Link to="/signup" className="text-orange-600 font-bold">
-                Signup
+            <small className="text-center">
+              Don't have an account? please
+              <Link className="text-lime-500 ml-2 text-center" to="/signup">
+                Sign Up
               </Link>
-            </p>
-            <GoogleLogin></GoogleLogin>
+            </small>
+            <p className="text-red-500">{error}</p>
           </form>
+          <p className="pb-2 m-0 text-center text-gray-400">Sign In with</p>
+          <div className="flex justify-center pb-5 pointer">
+            <button onClick={handleLoginWithGoogle}>
+              <img
+                className="w-12 h-12 border rounded-md p-2 "
+                src={google}
+                alt=""
+              />
+            </button>
+            <img
+              className="w-12 h-12 border rounded-md p-2 mx-6"
+              src={facebook}
+              alt=""
+            />
+            <button>
+              <img
+                className="w-12 h-12 border rounded-md p-2"
+                src={github}
+                alt=""
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

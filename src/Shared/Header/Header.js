@@ -7,13 +7,13 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
-  // const handleLogOut = () => {
-  //   logOut()
-  //     .then(() => {})
-  //     .catch((error) => console.error(error));
-  // };
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div>
@@ -46,10 +46,10 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/faq"
+                    to="/all_services"
                     className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
                   >
-                    FAQ
+                    Services
                   </Link>
                   <Link
                     to="/blogs"
@@ -61,21 +61,18 @@ const Header = () => {
                   {!user && !user?.uid ? (
                     <>
                       <Link to="/login">
-                        <button className="btn btn-sm btn-outline btn-warning">
+                        <button className="btn btn-sm btn-outline btn-primary">
                           Login
                         </button>
                       </Link>
-                      <Link to="/register">
-                        <button className="btn btn-sm btn-outline btn-warning">
-                          Register
+                      <Link to="/signup">
+                        <button className="btn btn-sm btn-outline btn-primary">
+                          Sign UP
                         </button>
                       </Link>
                     </>
                   ) : (
-                    <Link className="text-warning ">
-                      Email:{" "}
-                      <span className="text-success ml-2">{user?.email}</span>
-                    </Link>
+                    <Link className="text-warning "></Link>
                   )}
                 </div>
               </div>
@@ -124,7 +121,7 @@ const Header = () => {
                 )}
               </button>
             </div>
-            {/* {user && user.uid ? (
+            {user && user.uid ? (
               <div className="dropdown dropdown-end hidden md:block">
                 <label tabIndex={0}>
                   <div className="avatar online placeholder hover:cursor-pointer">
@@ -170,7 +167,7 @@ const Header = () => {
                   <div className="bg-neutral-focus text-neutral-content rounded-full w-12"></div>
                 </div>
               </label>
-            )} */}
+            )}
           </div>
         </div>
 
@@ -195,10 +192,10 @@ const Header = () => {
                   </Link>
 
                   <Link
-                    to="/coursedetails"
+                    to="/all_services"
                     className="hover:bg-gray-700 hover:text-white text-warning px-3 py-2 rounded-md text-md font-medium"
                   >
-                    Courses
+                    Services
                   </Link>
 
                   <Link
@@ -213,25 +210,25 @@ const Header = () => {
                   >
                     Blogs
                   </Link>
-                  {/* {!user && !user?.uid ? (
+                  {!user && !user?.uid ? (
                     <>
                       <Link to="/login">
                         <button className="btn btn-sm btn-outline btn-warning">
                           Login
                         </button>
                       </Link>
-                      <Link to="/register">
+                      <Link to="/signup">
                         <button className="btn btn-sm btn-outline btn-warning">
-                          Register
+                          Sign
                         </button>
                       </Link>
                     </>
                   ) : (
                     <span></span>
-                  )} */}
+                  )}
                 </div>
                 <div>
-                  {/* {user && user.uid ? (
+                  {user && user.uid ? (
                     <div className="dropdown dropdown-end block md:hidden">
                       <label tabIndex={0}>
                         <div className="avatar online placeholder hover:cursor-pointer">
@@ -276,7 +273,7 @@ const Header = () => {
                         <div className="bg-neutral-focus text-neutral-content rounded-full w-12"></div>
                       </div>
                     </label>
-                  )} */}
+                  )}
                 </div>
               </div>
             </div>
