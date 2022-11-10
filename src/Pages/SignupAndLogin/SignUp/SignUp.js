@@ -77,7 +77,7 @@ const SignUp = () => {
               </label>
               <input
                 name="photourl"
-                type="photourl"
+                type="text"
                 placeholder="photo url"
                 className="input input-bordered"
                 required
