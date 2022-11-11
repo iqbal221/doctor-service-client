@@ -10,7 +10,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import app from "../Firebase/Firebase.config";
+import app from "../Firebase/firebase.config";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -39,7 +39,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("genius_token");
+    localStorage.removeItem("fitness_trainer");
     return signOut(auth);
   };
 

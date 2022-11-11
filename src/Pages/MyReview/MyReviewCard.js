@@ -37,9 +37,10 @@ const MyReviewCard = ({ feedback }) => {
     if (proceed) {
       fetch(`https://doctor-service-server-mu.vercel.app/feedback/${_id}`, {
         method: "DELETE",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("genius_token")}`,
-        // },
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("fitness_trainer")}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -55,7 +56,7 @@ const MyReviewCard = ({ feedback }) => {
 
   return (
     <div>
-      <div className="border border-gray w-1/2 mx-auto p-3 mb-4 rounded">
+      <div className="border border-gray md:w-1/2 w-full mx-auto md:p-3 p-1 mb-4 rounded">
         <div className="flex items-center mb-4">
           <img
             src={feedback?.image}

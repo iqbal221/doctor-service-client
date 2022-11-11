@@ -4,7 +4,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className="banner md:flex flex-column  md:px-24 px-2">
+    <div className="banner md:flex flex-column  md:px-24 px-2 pb-3">
       <img src={doctor} alt="" className="md:pt-24 pt-2 pl-8 " />
       <div className="md:pt-36 pt-2 text-white  md:pl-10 pl-2">
         <h1 className="md:text-5xl text-3xl font-bold mb-6">

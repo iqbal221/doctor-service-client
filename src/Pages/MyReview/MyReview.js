@@ -22,12 +22,12 @@ const MyReview = () => {
   }, []);
 
   return (
-    <div className="md:px-24 pt-10 pb-16">
-      <div className="card bg-base-100 shadow-md p-5 ">
+    <div className="md:px-24 px-2 md:pt-10 pt-4 pb-16">
+      <div className="card bg-base-100 shadow-md md:p-5 p-2 ">
         <div className="">
           {feedbacks ? (
             <div>
-              <h1 className="text-center font-bold text-3xl my-10 text-orange-500 italic">
+              <h1 className="text-center font-bold text-3xl md:my-10 my-6 text-orange-500 italic">
                 Reviews With Service
               </h1>
               {feedbacks?.map((feedback) => (

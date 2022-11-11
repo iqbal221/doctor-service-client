@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="md:px-24 py-36">
+      <div className="md:px-24 px-2 md:py-36 py-10">
         <Services services={services}></Services>
         <Stories></Stories>
       </div>

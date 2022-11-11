@@ -29,6 +29,7 @@ const AllServiceDetails = () => {
         method: "POST",
         headers: {
           "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("fitness_trainer")}`,
         },
         body: JSON.stringify(comments),
       })
@@ -50,7 +51,7 @@ const AllServiceDetails = () => {
 
   return (
     <>
-      <div className="md:px-24 pt-10 pb-16">
+      <div className="md:px-24 px-2 pt-10 md:pb-16 pb-10">
         <div className="card bg-base-100 shadow-lg pb-10">
           <div className="card-body">
             <h2 className="card-title">
@@ -69,8 +70,8 @@ const AllServiceDetails = () => {
           </div>
         </div>
       </div>
-      <div className="md:px-24 pt-10 pb-16">
-        <div className="card bg-base-100 shadow-md p-5 ">
+      <div className="md:px-24 px-2 pt-10 pb-16">
+        <div className="card bg-base-100 shadow-md md:p-5 p-2 ">
           <h1 className="text-center font-bold text-4xl my-10 text-orange-500 italic">
             Reviews From Client
           </h1>
@@ -86,7 +87,7 @@ const AllServiceDetails = () => {
               <textarea
                 name="msg"
                 type="text"
-                className="textarea textarea-primary  w-1/2 h-48"
+                className="textarea textarea-primary  md:w-1/2 w-full h-48"
                 placeholder="Comments here....."
               ></textarea>
               <br></br>

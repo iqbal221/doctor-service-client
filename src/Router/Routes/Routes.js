@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
+import AddService from "../../Pages/AddService/AddService";
 import AllServiceDetails from "../../Pages/AllServiceDetails/AllServiceDetails";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Blogs from "../../Pages/Blogs/Blogs";
@@ -8,6 +9,7 @@ import Home from "../../Pages/Home/Home";
 import MyReview from "../../Pages/MyReview/MyReview";
 import Login from "../../Pages/SignupAndLogin/Login/Login";
 import SignUp from "../../Pages/SignupAndLogin/SignUp/SignUp";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -42,13 +44,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/my_review",
-        element: <MyReview></MyReview>,
-        loader: ({ params }) =>
+        element: (
+          <PrivateRoutes>
+            <MyReview></MyReview>
+          </PrivateRoutes>
+        ),
+        loader: () =>
           fetch(`https://doctor-service-server-mu.vercel.app/all_services/`),
       },
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/addService",
+        element: (
+          <PrivateRoutes>
+            <AddService></AddService>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

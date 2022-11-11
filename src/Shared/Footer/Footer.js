@@ -2,13 +2,21 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer px-24 py-14 bg-base-200 text-base-content">
+    <footer className="footer md:px-24 px-2 py-14 bg-base-200 text-base-content">
       <div>
         <span className="footer-title">Services</span>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <a href="#" className="link link-hover">
+          Branding
+        </a>
+        <a href="#" className="link link-hover">
+          Design
+        </a>
+        <a href="#" className="link link-hover">
+          Marketing
+        </a>
+        <a href="#" className="link link-hover">
+          Advertisement
+        </a>
       </div>
       <div>
         <span className="footer-title">Company</span>
