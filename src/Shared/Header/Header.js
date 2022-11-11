@@ -53,6 +53,18 @@ const Header = () => {
                     Services
                   </Link>
                   <Link
+                    to="/addService"
+                    className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
+                  >
+                    Add Service
+                  </Link>
+                  <Link
+                    to="/my_review"
+                    className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
+                  >
+                    My Review
+                  </Link>
+                  <Link
                     to="/blogs"
                     className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
                   >
@@ -73,7 +85,7 @@ const Header = () => {
                       </Link>
                     </>
                   ) : (
-                    <Link className="text-warning "></Link>
+                    <span></span>
                   )}
                 </div>
               </div>
@@ -199,6 +211,18 @@ const Header = () => {
                     className="hover:bg-gray-700 hover:text-white text-warning px-3 py-2 rounded-md text-md font-medium"
                   >
                     Services
+                  </Link>
+                  <Link
+                    to="/addService"
+                    className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
+                  >
+                    Add Service
+                  </Link>
+                  <Link
+                    to="/my_review"
+                    className="hover:bg-orange-300 hover:text-white text-lime-500 px-3 py-2 rounded-md text-md font-medium"
+                  >
+                    My Review
                   </Link>
 
                   <Link

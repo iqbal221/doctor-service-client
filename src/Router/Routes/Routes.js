@@ -4,6 +4,7 @@ import Main from "../../Layout/Main/Main";
 import AllServiceDetails from "../../Pages/AllServiceDetails/AllServiceDetails";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Home from "../../Pages/Home/Home";
+import MyReview from "../../Pages/MyReview/MyReview";
 import Login from "../../Pages/SignupAndLogin/Login/Login";
 import SignUp from "../../Pages/SignupAndLogin/SignUp/SignUp";
 
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       {
         path: "/all_services",
         element: <AllServices></AllServices>,
-        loader: () => fetch("http://localhost:5000/all_services"),
+        loader: () =>
+          fetch("https://doctor-service-server-mu.vercel.app/all_services"),
       },
       {
         path: "/login",
@@ -33,7 +35,15 @@ const router = createBrowserRouter([
         path: "/all_services/:id",
         element: <AllServiceDetails></AllServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all_services/${params.id}`),
+          fetch(
+            `https://doctor-service-server-mu.vercel.app/all_services/${params.id}`
+          ),
+      },
+      {
+        path: "/my_review",
+        element: <MyReview></MyReview>,
+        loader: ({ params }) =>
+          fetch(`https://doctor-service-server-mu.vercel.app/all_services/`),
       },
     ],
   },

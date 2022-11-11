@@ -19,12 +19,13 @@ const AllServiceDetails = () => {
       const msg = form.msg.value;
 
       const comments = {
-        description: msg,
-        image: user.photoURL,
-        email: user.email,
+        serviceId: _id,
         name: user.displayName,
+        email: user.email,
+        image: user.photoURL,
+        description: msg,
       };
-      fetch("http://localhost:5000/feedback", {
+      fetch("https://doctor-service-server-mu.vercel.app/feedback", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -39,62 +40,13 @@ const AllServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://doctor-service-server-mu.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setFeedbacks(data);
       });
   }, []);
-
-  // handle review
-
-  const handleUpdate = (id, event) => {
-    event.preventDefault();
-
-    const form = event.target;
-    const description = form.msg.value;
-
-    fetch(`http://localhost:5000/feedback/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("genius_token")}`,
-      },
-      body: JSON.stringify(description),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          const remaining = feedbacks.filter((or) => or._id !== id);
-          const updated = feedbacks.find((or) => or._id === id);
-          const newFeedback = [updated, ...remaining];
-          setFeedbacks(newFeedback);
-        }
-      });
-  };
-
-  const handleDelete = (_id) => {
-    const proceed = window.confirm("Do you want to delete ?");
-    if (proceed) {
-      fetch(`http://localhost:5000/feedback/${_id}`, {
-        method: "DELETE",
-        // headers: {
-        //   authorization: `Bearer ${localStorage.getItem("genius_token")}`,
-        // },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            alert("Deleted Successfully");
-            const remainingFeedbacks = feedbacks.filter((or) => or._id !== _id);
-            setFeedbacks(remainingFeedbacks);
-          }
-        });
-    }
-  };
 
   return (
     <>
@@ -124,10 +76,9 @@ const AllServiceDetails = () => {
           </h1>
           {feedbacks?.map((feedback) => (
             <Feedback
+              serviceDetails={serviceDetails[0]}
               key={feedback?._id}
               feedback={feedback}
-              handleDelete={handleDelete}
-              handleUpdate={handleUpdate}
             ></Feedback>
           ))}
           <div>
