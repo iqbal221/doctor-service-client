@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import AllServiceDetails from "../../Pages/AllServiceDetails/AllServiceDetails";
 import AllServices from "../../Pages/AllServices/AllServices";
+import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import MyReview from "../../Pages/MyReview/MyReview";
 import Login from "../../Pages/SignupAndLogin/Login/Login";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         element: <MyReview></MyReview>,
         loader: ({ params }) =>
           fetch(`https://doctor-service-server-mu.vercel.app/all_services/`),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
     ],
   },
