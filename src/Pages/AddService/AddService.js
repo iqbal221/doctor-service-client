@@ -36,7 +36,7 @@ const AddService = () => {
         description,
         description2,
       };
-      fetch("https://doctor-service-server-mu.vercel.app/all_services", {
+      fetch("http://localhost:5000/all_services", {
         method: "POST",
         headers: {
           "content-type": "application/json",

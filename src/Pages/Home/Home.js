@@ -6,7 +6,7 @@ import { Stories } from "./Stories/Stories";
 const Home = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("https://doctor-service-server-mu.vercel.app/services")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

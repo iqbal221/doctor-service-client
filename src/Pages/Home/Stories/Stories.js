@@ -5,7 +5,7 @@ export const Stories = () => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    fetch("https://doctor-service-server-mu.vercel.app/stories")
+    fetch("http://localhost:5000/stories")
       .then((res) => res.json())
       .then((data) => setStories(data));
   }, []);

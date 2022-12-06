@@ -12,7 +12,7 @@ const MyReviewCard = ({ feedback }) => {
     const form = event.target;
     const description = form.msg.value;
 
-    fetch(`https://doctor-service-server-mu.vercel.app/feedback/${_id}`, {
+    fetch(`http://localhost:5000/feedback/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const MyReviewCard = ({ feedback }) => {
   const handleDelete = (_id) => {
     const proceed = window.confirm("Do you want to delete ?");
     if (proceed) {
-      fetch(`https://doctor-service-server-mu.vercel.app/feedback/${_id}`, {
+      fetch(`http://localhost:5000/feedback/${_id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

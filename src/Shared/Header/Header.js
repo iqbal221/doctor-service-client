@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div>
       <nav className="">
-        <div className="mx-auto sm:px-6 lg:px-24 py-2">
+        <div className="mx-auto sm:px-6 lg:px-24">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex  items-center">
@@ -197,7 +197,7 @@ const Header = () => {
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div className="flex justify-between items-center pr-3">
+              <div className="flex justify-between items-center px-2">
                 <div ref={ref} className="px-2  space-y-1 sm:px-3">
                   <Link
                     to="/"
@@ -252,7 +252,7 @@ const Header = () => {
                   {user && user.uid ? (
                     <div className="dropdown dropdown-end block md:hidden">
                       <label tabIndex={0}>
-                        <div className="avatar online placeholder hover:cursor-pointer">
+                        <div>
                           <div className="w-12">
                             <img src={user?.photoURL} alt="..." />
                           </div>
@@ -289,13 +289,7 @@ const Header = () => {
                       </ul>
                     </div>
                   ) : (
-                    <label tabIndex={0}>
-                      <div className="avatar online placeholder hover:cursor-pointer">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-                          <img src={avatar} alt="..." />
-                        </div>
-                      </div>
-                    </label>
+                    <span></span>
                   )}
                 </div>
               </div>

@@ -25,7 +25,7 @@ const AllServiceDetails = () => {
         image: user.photoURL,
         description: msg,
       };
-      fetch("https://doctor-service-server-mu.vercel.app/feedback", {
+      fetch("http://localhost:5000/feedback", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -41,10 +41,10 @@ const AllServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetch("https://doctor-service-server-mu.vercel.app/feedback")
+    fetch("http://localhost:5000/feedback")
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setFeedbacks(data);
       });
   }, []);
