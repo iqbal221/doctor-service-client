@@ -23,7 +23,8 @@ const router = createBrowserRouter([
       {
         path: "/all_services",
         element: <AllServices></AllServices>,
-        loader: () => fetch("http://localhost:5000/all_services"),
+        loader: () =>
+          fetch("https://doctor-service-server-mu.vercel.app/all_services"),
       },
       {
         path: "/login",
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
         path: "/all_services/:id",
         element: <AllServiceDetails></AllServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all_services/${params.id}`),
+          fetch(
+            `https://doctor-service-server-mu.vercel.app/all_services/${params.id}`
+          ),
       },
       {
         path: "/my_review",
@@ -46,7 +49,8 @@ const router = createBrowserRouter([
             <MyReview></MyReview>
           </PrivateRoutes>
         ),
-        loader: () => fetch(`http://localhost:5000/all_services/`),
+        loader: () =>
+          fetch(`https://doctor-service-server-mu.vercel.app/all_services/`),
       },
       {
         path: "/blogs",

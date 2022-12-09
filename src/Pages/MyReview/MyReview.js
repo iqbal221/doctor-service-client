@@ -13,7 +13,7 @@ const MyReview = () => {
     serviceDetails[0];
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("https://doctor-service-server-mu.vercel.app/feedback")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

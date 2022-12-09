@@ -33,7 +33,7 @@ const Login = () => {
           email: user.email,
         };
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://doctor-service-server-mu.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
